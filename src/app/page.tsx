@@ -1,3 +1,15 @@
+import Banner from "@/components/Banner";
+
 export default function Home() {
-  return <main className=" mb-10"></main>;
+  return (
+    <main>  
+
+      <div>
+        <Banner/>
+
+        
+      </div>
+    </main>
+    
+  );
 }

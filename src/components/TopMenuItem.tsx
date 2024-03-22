@@ -7,7 +7,7 @@ type TopMenuItemProps = {
 
 function TopMenuItem({ title, href }: TopMenuItemProps) {
   return (
-    <Link href={href} className="px-5 py-7 text-xl hover:bg-neutral-400">
+    <Link href={href} className="text-lg bg-slate-700  hover:bg-neutral-400">
       {title}
     </Link>
   );

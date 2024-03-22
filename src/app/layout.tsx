@@ -1,13 +1,13 @@
 import TopMenu from "@/components/TopMenu";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Prompt } from "next/font/google";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const promt = Prompt({ subsets: ['latin'],weight : ['400','700'] })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +23,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={promt.className}>
         <NextAuthProvider session={nextAuthSession}>
           <TopMenu />
           {children}
