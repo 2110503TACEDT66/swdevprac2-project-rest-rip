@@ -1,6 +1,6 @@
 async function getUserProfile(token: string) {
   const response = await fetch(
-    "https://vaccine-app-backend.vercel.app/api/v1/auth/me",
+    "http://localhost:5000/auth/me",
     {
       method: "GET",
       headers: {
@@ -11,9 +11,12 @@ async function getUserProfile(token: string) {
 
   if (!response.ok) {
     throw new Error("Failed to fetch user profile.");
-  }
+  } 
+  
+  const responseData = await response.json(); 
 
-  return await response.json();
+  // console.log(responseData); 
+  return responseData;
 }
 
 export default getUserProfile;

@@ -1,6 +1,6 @@
 async function userLogIn(userEmail: string, userPassword: string) {
   const response = await fetch(
-    "https://vaccine-app-backend.vercel.app/api/v1/auth/login",
+    "http://localhost:5000/auth/login",
     {
       method: "POST",
       headers: {
@@ -13,6 +13,7 @@ async function userLogIn(userEmail: string, userPassword: string) {
   if (!response.ok) {
     throw new Error("Failed to login user");
   }
+
 
   return await response.json();
 }

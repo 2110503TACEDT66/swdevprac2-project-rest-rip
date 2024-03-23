@@ -1,9 +1,12 @@
 import userLogIn from "@/libs/userLogIn";
 import NextAuth, { AuthOptions } from "next-auth";
-
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: AuthOptions = {
+  pages: {
+    newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
+  },
+
   providers: [
     CredentialsProvider({
       name: "Credentials",

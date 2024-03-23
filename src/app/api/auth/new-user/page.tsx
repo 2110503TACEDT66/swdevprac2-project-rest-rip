@@ -49,7 +49,7 @@ const page =  () => {
 
         <div className='p-4  flex justify-center w-1/3 flex-col items-center bg-white rounded-lg'>
           
-          <h1 className='font-semibold text-black'>Vaccine Booking</h1>
+          <h1 className='font-semibold text-black'>Registeration</h1>
           <div className='w-full justify-center'>
           <div className='my-4'>
         <div className='space-y-3 flex flex-col text-slate-500 px-4'>
@@ -59,16 +59,11 @@ const page =  () => {
             <TextField variant='standard' name='Surname' label='Surname' onChange={(e) => {setSurname(e.target.value);}}></TextField>
             <h2>ID</h2>
             <TextField variant='standard' name='Citizen ID' label='Citizen ID' onChange={(e) => {setCitizenID(e.target.value);}}></TextField>
-            <h2>Hospital</h2>
-            <Select variant='standard'  id='hospital' value={hospital} onChange={(e) => {setHospital(e.target.value);}} className='text-black'>
-                <MenuItem value='Chula'>Chulalongkorn Hospital</MenuItem>
-                <MenuItem value='Rajavithi'>Rajavithi Hospital</MenuItem>
-                <MenuItem value='Thammasat'>Thammasat University Hospital</MenuItem>
-            </Select>
+
     
-            <DateReserve onDateChange={(value:Dayjs)=>{setBookingDate(value); }}/>
+         
             <div className='flex justify-center'>
-                <button className='text-white bg-slate-500 w-1/3 rounded-full py-2' name='Book Vaccine'>Booking Space</button>
+                <button className='text-white bg-slate-500 w-1/3 rounded-full py-2' name='Book Vaccine'>register</button>
                 {/* onClick={() => {makeBooking(); alert("Booking Finished")}}>Book Vaccine</button> */}
             </div>
             
