@@ -36,12 +36,20 @@ const TopMenu = async () => {
             Sign-Out   {profile.data.name}
           </div>
         </Link>  : 
+        <div className='flex'>
+            <Link href = '/api/auth/signin' className='no-underline'>
+              <div className='font-Prompt text-lg px-3 py-1 text-white  no-underline'>
+                Sign-In
+              </div>
+            </Link> 
+            <Link href = '/api/auth/new-user' className='no-underline'>
+              <div className='font-Prompt text-lg px-3 py-1 text-white  no-underline'>
+                Sign-Up
+              </div>
+            </Link> 
+        </div>
           
-          <Link href = '/api/auth/signin' className='no-underline'>
-            <div className='font-Prompt text-lg px-3 py-1 text-white  no-underline'>
-              Sign-In
-            </div>
-          </Link> 
+        
         
       }
 

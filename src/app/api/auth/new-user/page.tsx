@@ -1,17 +1,7 @@
 'use client'
-import DateReserve from '@/components/DateReserve'
+
 import React, { useState } from 'react'
-import { MenuItem, Select, TextField } from '@mui/material'
-
-import { Dayjs } from 'dayjs'
-
-// import { useDispatch } from 'react-redux'
-// import { AppDispatch } from '@/redux/store'
-
-// import { addBooking } from '@/redux/features/bookSlice'
-// import { BookingItem } from '../../../interface'
-import dayjs from 'dayjs';
-import { finished } from 'stream'
+import { TextField } from '@mui/material'
 
 const page =  () => {
 
@@ -19,29 +9,33 @@ const page =  () => {
 
 
   const [name, setName] = useState<string|null>("");
-  const [surname, setSurname] = useState<string|null>("");
-  const [hospital, setHospital] = useState<string|null>("");
+  const [email, setEmail] = useState<string|null>("");
+  const [tel, setTel] = useState<string|null>("");
   const [citizenID, setCitizenID] = useState<string|null>("");
-  const [bookingDate, setBookingDate] = useState<Dayjs|null>(null);
+  const [password, setPassword] = useState<string|null>("");
 
-  // const dispatch = useDispatch<AppDispatch>();  
+  const handleRegister = async (e) => {
 
-  // const makeBooking = () => {
-  //   if( name && surname && hospital && bookingDate && citizenID){
-      
-  //     const item:BookingItem = {
-  //       name : name,
-  //       surname : surname,
-  //       id : citizenID,
-  //       hospital : hospital,
-  //       bookDate :  dayjs(bookingDate).format('YYYY/MM/DD'),
+    console.log("handle here");
+    e.preventDefault();
+    try{
+      const response = await fetch ("http://localhost:5000/auth/register",{
+        method : "POST",
+        headers : {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({ name, email, tel, citizenID,password}),
+      });
 
-  //     }
-  //     // console.log(item);
-  //     dispatch(addBooking(item));
+      if(!response.ok){
+        throw new Error("Failed to register new user");
+      }
+    }catch(e){
+      console.log(e);
+    }
 
-  //   }
-  // };
+  }
+
   return (
     <div className='m-6 bg-slate-700 rounded-2xl flex flex-col justify-center p-4 items-center'>
 
@@ -55,15 +49,18 @@ const page =  () => {
         <div className='space-y-3 flex flex-col text-slate-500 px-4'>
             <h2>Name</h2>
             <TextField variant='standard' name='Name' label='Name' onChange={(e) => {setName(e.target.value);}}></TextField>
-            <h2>Surname</h2>
-            <TextField variant='standard' name='Surname' label='Surname' onChange={(e) => {setSurname(e.target.value);}}></TextField>
-            <h2>ID</h2>
+            <h2>Citizen ID</h2>
             <TextField variant='standard' name='Citizen ID' label='Citizen ID' onChange={(e) => {setCitizenID(e.target.value);}}></TextField>
-
-    
+            <h2>Telephone Number</h2>
+            <TextField variant='standard' name='Tel' label='Tel' onChange={(e) => {setTel(e.target.value);}}></TextField>
+            <h2>Email</h2>
+            <TextField variant='standard' name='Email' label='Email' onChange={(e) => {setEmail(e.target.value);}}></TextField>
+            <h2>Password</h2>
+            <TextField variant='standard' name='Password' label='Password' onChange={(e) => {setPassword(e.target.value);}}></TextField>
          
             <div className='flex justify-center'>
-                <button className='text-white bg-slate-500 w-1/3 rounded-full py-2' name='Book Vaccine'>register</button>
+                <button className='text-white bg-slate-500 w-1/3 rounded-full py-2' name='resigter'
+                onClick={(e) => {handleRegister(e)}}>register</button>
                 {/* onClick={() => {makeBooking(); alert("Booking Finished")}}>Book Vaccine</button> */}
             </div>
             
