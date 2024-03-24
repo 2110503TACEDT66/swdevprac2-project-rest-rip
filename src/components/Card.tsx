@@ -7,44 +7,48 @@ import Image from "next/image";
 type CardProps = {
   hospitalName: string;
   imgSrc: string;
+  address : string;
   onRating?: Function;
 };
 
-function Card({ hospitalName, imgSrc, onRating }: CardProps) {
+function Card({ hospitalName, imgSrc,address, onRating }: CardProps) {
   const [rating, setRating] = useState(5);
 
   return (
-    <div className="w-80 h-96">
       <InteractiveCard>
-        <div className="">
+        <div className="flex w-full bg-slate-500 rounded-lg">
+ 
           <Image
             src={imgSrc}
-            alt="asd"
-            width={0}
-            height={0}
-            className="rounded-t-xl w-full h-auto"
+            alt="workingSpaceImg"
+            width={350}
+            height={350}
+            className="rounded-lg h-full w-auto"
           />
           {/* <img src={imgSrc} alt="hospital image" className="rounded-t-xl" /> */}
+
+          <div className="m-2 text-white">
+            <h1 className="text-xl font-semibold mb-2">{hospitalName}</h1>
+            <p className="font-thin">{address}</p>
+            {/* {onRating && (
+              <Rating
+                id={hospitalName + " Rating"}
+                name={hospitalName + " Rating"}
+                data-testid={hospitalName + " Rating"}
+                value={rating}
+                onChange={(event, newValue) => {
+                  if (newValue !== null) {
+                    setRating(newValue);
+                    onRating(hospitalName, newValue);
+                  }
+                }}
+              />
+            )} */}
+          </div>
         </div>
-        <div className="m-2">
-          <h1 className="text-2xl">{hospitalName}</h1>
-          {onRating && (
-            <Rating
-              id={hospitalName + " Rating"}
-              name={hospitalName + " Rating"}
-              data-testid={hospitalName + " Rating"}
-              value={rating}
-              onChange={(event, newValue) => {
-                if (newValue !== null) {
-                  setRating(newValue);
-                  onRating(hospitalName, newValue);
-                }
-              }}
-            />
-          )}
-        </div>
+
       </InteractiveCard>
-    </div>
+
   );
 }
 
