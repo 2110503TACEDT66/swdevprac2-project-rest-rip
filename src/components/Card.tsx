@@ -4,6 +4,8 @@ import InteractiveCard from "./InteractiveCard";
 import { useState } from "react";
 import Image from "next/image";
 
+import { useRouter } from "next/router";
+
 type CardProps = {
   hospitalName: string;
   imgSrc: string;
@@ -14,7 +16,11 @@ type CardProps = {
 function Card({ hospitalName, imgSrc,address, onRating }: CardProps) {
   const [rating, setRating] = useState(5);
 
+
   return (
+    <div>
+
+
       <InteractiveCard>
         <div className="flex w-full bg-slate-500 rounded-lg">
  
@@ -44,11 +50,12 @@ function Card({ hospitalName, imgSrc,address, onRating }: CardProps) {
                 }}
               />
             )} */}
+
           </div>
         </div>
 
       </InteractiveCard>
-
+      </div>
   );
 }
 

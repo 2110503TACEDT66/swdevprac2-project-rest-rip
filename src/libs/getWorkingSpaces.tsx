@@ -4,7 +4,7 @@ async function getWorkingSpaces() {
   if (!response.ok) {
     throw new Error("Failed to fetch working spaces");
   }
-
+  
   return await response.json();
 }
 

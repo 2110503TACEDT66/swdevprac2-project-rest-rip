@@ -1,6 +1,10 @@
+'use client'
+import Link from 'next/link'
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
 const Banner = () => {
+  const router = useRouter();
   return (
     <div className='bg-slate-700 my-4 mx-6 rounded-xl p-6 flex justify-between' style={{minHeight: "88vh"}}>
       <div className='flex flex-col justify-start'>
@@ -12,7 +16,14 @@ const Banner = () => {
           <li>- Friendly UX/UI for users</li>
           <li>- 24/7 help services</li>
         </ul>
-        <button className='bg-red-700  px-4 py-2 rounded-lg w-1/3 mt-24 mb-6'>Reserve Now</button>
+   
+          <button className='bg-red-700  px-4 py-2 rounded-lg w-1/3 mt-24 mb-6'
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push('/workinngSpace')
+          }}>Reserve Now</button>
+    
+
         <h1 className='ml-2 mt-6 text-md'>Call us at +66 1 212 3121</h1>
       </div>
 
