@@ -3,7 +3,6 @@ async function postReservation(
   token: string
 ) {
   const response = await fetch(
-    // `http://localhost:5000/workingSpaces/${reservationItem.workSpaceId}/reservation`,
     `https://presentation-day-1-rest-rip.vercel.app/workingSpaces/${reservationItem.workSpaceId}/reservation`,
     {
       method: "POST",

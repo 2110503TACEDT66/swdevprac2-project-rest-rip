@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className='bg-slate-700 my-4 mx-6 rounded-xl p-6 flex justify-between' style={{minHeight: "88vh"}}>
       <div className='flex flex-col justify-start'>
-        <h1 className='font-semibold text-4xl mb-10'>CO-Woring Spaces for you</h1>
+        <h1 className='font-semibold text-4xl mb-10'>CO-Working Spaces for you</h1>
         <p className='my-6 pr-6'>Step into productivity with our private office space in Thailand. Our fully equipped offices offer the perfect blend of comfort and functionality, allowing you to work efficiently and effectively. Rent space on your terms and concentrate on achieving your business objectives with us by your side.</p>
         <h1 className='font-semibold my-6 text-xl'>What do we provide for you:</h1>
         <ul className='space-y-2'>

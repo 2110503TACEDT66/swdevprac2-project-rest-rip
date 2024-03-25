@@ -10,20 +10,22 @@ export default function BookingList() {
     (state) => state.reservationSlice.reservationItems
   );
   const dispatch = useDispatch<AppDispatch>();
+  let i = 0;
   return (
     <>
       {bookItems.length > 0 ? (
         bookItems.map((reservationItem) => (
           <div
             className="bg-slate-700 rounded-xl m-4 p-6 flex justify-center flex-col items-center text-white "
-            key={reservationItem.id}
+            key={i}
           >
             <div className="bg-slate-500 rounded-lg px-4 py-2 text-white w-1/4 items-center flex flex-col justify-center">
               <div className="flex gap-4">
                 <h1>{reservationItem.name}</h1>
               </div>
 
-              <h1>{reservationItem.id}</h1>
+              <h1>{i}</h1>
+
               <h1>{reservationItem.workSpace}</h1>
 
               <h1>{reservationItem.bookDate}</h1>
