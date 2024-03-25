@@ -7,7 +7,7 @@ interface WorkingSpaceItem {
   postalcode: string;
   tel: string;
   region: string;
-  // picture: string;
+  picture: string;
   __v: number;
 }
 

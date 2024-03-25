@@ -9,11 +9,16 @@ async function postReservation(
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ apptDate: reservationItem.bookDate }),
+      body: JSON.stringify({
+        user: reservationItem.id,
+        apptDate: reservationItem.bookDate,
+      }),
     }
   );
 
   if (!respose.ok) {
+    const data = await respose.json();
+    console.log(data);
     throw new Error("Failed to post reservation");
   }
   console.log("post success");

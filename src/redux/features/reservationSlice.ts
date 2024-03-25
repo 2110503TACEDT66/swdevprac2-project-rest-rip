@@ -1,4 +1,7 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import postReservation from "@/libs/postReservation";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getServerSession } from "next-auth";
 
 type ReservationState = {
   reservationItems: ReservationItem[];

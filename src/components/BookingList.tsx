@@ -38,7 +38,7 @@ export default function BookingList() {
           </div>
         ))
       ) : (
-        <div>No Vaccine Booking</div>
+        <div>No Working Space Reservation</div>
       )}
     </>
   );
