@@ -12,7 +12,7 @@ async function postReservation(
       },
       body: JSON.stringify({
         user: reservationItem.userId,
-        apptDate: reservationItem.bookDate,
+        apptDate: reservationItem.apptDate,
       }),
     }
   );
