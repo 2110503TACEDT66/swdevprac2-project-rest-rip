@@ -18,11 +18,29 @@ interface WorkingSpaceJson {
   data: WorkingSpaceItem[];
 }
 
+interface workingReserv {
+  _id : string;
+  name : string ;
+  province : string ;
+  tel : string;
+  id : string;
+}
+
+interface ReservationJson {
+  success: boolean;
+  count: number;
+
+  data: ReservationItem[];
+}
+
 interface ReservationItem {
+  _id?: string;
+  user?: string;
   userId: string; // User ID
   name: string;
   email: string;
-  workSpace: string;
+  workingSpace? : workingReserv;
+  workSpace: Object;
   workSpaceId: string;
-  bookDate: string;
+  apptDate: string;
 }
