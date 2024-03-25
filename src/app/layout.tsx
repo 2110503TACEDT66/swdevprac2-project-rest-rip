@@ -6,8 +6,9 @@ import { Prompt } from "next/font/google";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import NextAuthProvider from "@/providers/NextAuthProvider";
+import ReduxProvider from "@/redux/ReduxProvider";
 
-const promt = Prompt({ subsets: ['latin'],weight : ['400','700'] })
+const promt = Prompt({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +25,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={promt.className}>
-        <NextAuthProvider session={nextAuthSession}>
-          <TopMenu />
-          {children}
-        </NextAuthProvider>
+        <ReduxProvider>
+          <NextAuthProvider session={nextAuthSession}>
+            <TopMenu />
+            {children}
+          </NextAuthProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

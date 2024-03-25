@@ -14,7 +14,6 @@ async function userLogIn(userEmail: string, userPassword: string) {
     throw new Error("Failed to login user");
   }
 
-
   return await response.json();
 }
 

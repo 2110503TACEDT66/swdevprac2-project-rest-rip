@@ -11,11 +11,11 @@ async function getUserProfile(token: string) {
 
   if (!response.ok) {
     throw new Error("Failed to fetch user profile.");
-  } 
-  
-  const responseData = await response.json(); 
+  }
 
-  // console.log(responseData); 
+  const responseData = await response.json();
+
+  // console.log(responseData);
   return responseData;
 }
 
