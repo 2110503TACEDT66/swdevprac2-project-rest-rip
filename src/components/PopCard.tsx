@@ -47,13 +47,14 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
       email: user.data.email,
       workSpace: workingSpace.name,
       workSpaceId: workingSpace._id,
-      bookDate: date.format("YYYY-MM-DD"),
+      apptDate: date.format("YYYY-MM-DD"),
     };
 
     dispatch(addReservation(reservationItem));
-    postReservation(reservationItem, session.user.token);
+    const response = postReservation(reservationItem, session.user.token);
     showPopCard(false);
-    alert("Reservation success");
+
+
   }
 
   function handleCancel() {

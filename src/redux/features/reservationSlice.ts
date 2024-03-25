@@ -21,10 +21,10 @@ export const reservationSlice = createSlice({
       // Now it removes all
       state.reservationItems = state.reservationItems.filter((item) => {
         return (
-          item.id !== action.payload.id &&
+          // item._id !== action.payload.id &&
           item.workSpace !== action.payload.workSpace &&
           item.workSpaceId !== action.payload.workSpaceId &&
-          item.bookDate !== action.payload.bookDate
+          item.apptDate !== action.payload.apptDate
         );
       });
     },

@@ -5,14 +5,8 @@ import { MenuItem, Select, TextField } from "@mui/material";
 
 import { Dayjs } from "dayjs";
 
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-
-import dayjs from "dayjs";
-import { addReservation } from "@/redux/features/reservationSlice";
 import getUserProfile from "@/libs/getUserProfile";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+
 import { useSession } from "next-auth/react";
 import getWorkingSpaces from "@/libs/getWorkingSpaces";
 import postReservation from "@/libs/postReservation";
@@ -40,7 +34,7 @@ const page = () => {
     useState<string>("");
   const [date, setDate] = useState<Dayjs | null>(null);
 
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
 
   const makeReservation = async () => {
     if (
@@ -59,10 +53,11 @@ const page = () => {
       email: user.data.email,
       workSpace: selectedWorkingSpace,
       workSpaceId: selectedWorkingSpaceID,
-      bookDate: date.format("YYYY-MM-DD"),
+      apptDate: date.format("YYYY-MM-DD"),
+  
     };
 
-    dispatch(addReservation(reservationItem));
+    // dispatch(addReservation(reservationItem));
 
     console.log(reservationItem.workSpaceId);
 
