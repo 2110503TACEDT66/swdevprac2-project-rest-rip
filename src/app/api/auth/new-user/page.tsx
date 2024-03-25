@@ -9,21 +9,29 @@ import { useRouter } from "next/navigation";
 const page = () => {
   const [name, setName] = useState<string | null>("");
   const [email, setEmail] = useState<string | null>("");
+  const [tel, setTel] = useState<string | null>("");
+  const [citizenID, setCitizenID] = useState<string | null>("");
   const [password, setPassword] = useState<string | null>("");
-  const router = useRouter();
 
-  const handleRegister = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleRegister = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    console.log("handle here");
     e.preventDefault();
-    if (!name || !email || !password) {
-      alert("Please fill all the fields");
-      return;
-    }
     try {
-      await userRegister(name, email, password);
-      alert("Registeration success");
-      router.push("/api/auth/signin");
-    } catch (err) {
-      console.log(err);
+      const response = await fetch("http://localhost:5000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, tel, citizenID, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to register new user");
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 
