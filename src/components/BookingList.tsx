@@ -1,7 +1,7 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import getReservation from '@/libs/getReservation'
 import { getServerSession } from 'next-auth';
-import { useSession } from 'next-auth/react';
+
 import React from 'react'
 
 const BookingList = async () => {
@@ -18,7 +18,7 @@ const BookingList = async () => {
 
 
   const reservations:ReservationJson = await getReservation(session.user.token);
-  console.log(reservations);
+  // console.log(reservations);
 
   return (
 

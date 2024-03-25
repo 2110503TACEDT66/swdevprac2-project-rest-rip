@@ -20,12 +20,22 @@ async function postReservation(
   console.log(reservationItem.userId);
 
   if (!response.ok) {
-    const data = await response.json();
-    console.log(data);
-    throw new Error("Failed to post reservation");
+    const data = response.json();
+    data.then((dt) => {
+      if(dt.message.includes("has already made 3 reservations")){
+        alert("You has already made 3 reservations");
+      }else{
+        alert(dt.message); 
+      }
+    });
+    return data;
+    // throw new Error("Failed to post reservation");
+  }else{
+    alert("Add a Reservation success");
+    console.log("post success");
+    return await response.json();
   }
-  console.log("post success");
-  return await response.json();
+
 }
 
 export default postReservation;

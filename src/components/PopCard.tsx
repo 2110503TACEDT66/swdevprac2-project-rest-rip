@@ -51,9 +51,10 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
     };
 
     dispatch(addReservation(reservationItem));
-    postReservation(reservationItem, session.user.token);
+    const response = postReservation(reservationItem, session.user.token);
     showPopCard(false);
-    alert("Reservation success");
+
+
   }
 
   function handleCancel() {
