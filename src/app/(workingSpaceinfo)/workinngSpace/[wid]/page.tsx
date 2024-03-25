@@ -27,16 +27,17 @@ function page({ params }: { params: { wid: string } }) {
   };
 
   return (
-    <div className="bg-slate-700 flex m-6 h-[100vh] items-center px-6 py-[24px] rounded-xl shadow-xl gap-5">
+    <div className="bg-slate-700 flex flex-col align-center m-6 items-center px-6 py-[24px] rounded-xl shadow-xl gap-5">
       <img
         src={workingSpaceData.picture}
-        className="h-full w-auto rounded-lg"
+        className="h-auto w-3/5 rounded-lg border-4 border-slate-600"
+        // alt="Working Space Image"
       />
-      <div className="relative flex flex-col ">
-        <h1 className="mx-auto my-2 text-2xl w-full">
+      <div className=" flex flex-col text-center bg-slate-600 rounded-lg p-5">
+        <h1 className="mx-auto my-2 text-2xl w-full font-semibold">
           {workingSpaceData.name}
         </h1>
-        <h1 className="mx-auto my-2 text-xl w-full ml-2">
+        <h1 className="mx-5 my-2 text-xl w-auto  text-slate-200">
           {workingSpaceData.address +
             " " +
             workingSpaceData.district +
@@ -45,13 +46,15 @@ function page({ params }: { params: { wid: string } }) {
             " " +
             workingSpaceData.postalcode}
         </h1>
-        <h1 className="mx-auto my-2 text-xl w-full ml-2">
+        <h1 className="mx-5 my-2 text-xl w-auto text-slate-200">
           {workingSpaceData.tel}
         </h1>
 
-        <Button variant="contained" onClick={handleButtonClick}>
-          Make Reservation
-        </Button>
+        <div className="flex flex-row justify-center gap-5 px-5 py-2.5 me-2 mb-0 mt-5">
+          <Button variant="contained" onClick={handleButtonClick}>
+            Make Reservation
+          </Button>
+        </div>
       </div>
 
       {showPopCard && (

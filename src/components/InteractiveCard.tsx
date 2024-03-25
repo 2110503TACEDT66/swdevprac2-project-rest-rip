@@ -23,7 +23,7 @@ function InteractiveCard({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className="shadow-lg rounded-lg bg-white w-full  my-2"
+      className="shadow-lg rounded-2xl w-full  my-2"
       onMouseOver={(e) => {
         eventHandler(e);
       }}
