@@ -14,7 +14,7 @@ const page =  () => {
   const [citizenID, setCitizenID] = useState<string|null>("");
   const [password, setPassword] = useState<string|null>("");
 
-  const handleRegister = async (e) => {
+  const handleRegister = async (e:any) => {
 
     console.log("handle here");
     e.preventDefault();
