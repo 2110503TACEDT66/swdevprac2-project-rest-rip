@@ -1,6 +1,6 @@
 async function getUserProfile(token: string) {
   const response = await fetch(
-    "https://coworkingspaceapi.onrender.com/workingSpaces/auth/me",
+    "https://presentation-day-1-rest-rip.vercel.app/auth/me",
     {
       method: "GET",
       headers: {
