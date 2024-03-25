@@ -14,7 +14,7 @@ const page =  () => {
   const [citizenID, setCitizenID] = useState<string|null>("");
   const [password, setPassword] = useState<string|null>("");
 
-  const handleRegister = async (e:any) => {
+  const handleRegister = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 
     console.log("handle here");
     e.preventDefault();
