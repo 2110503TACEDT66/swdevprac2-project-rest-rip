@@ -4,7 +4,7 @@ async function postReservation(
 ) {
   const response = await fetch(
     // `http://localhost:5000/workingSpaces/${reservationItem.workSpaceId}/reservation`,
-    `https://coworkingspaceapi.onrender.com/workingSpaces/${reservationItem.workSpaceId}/reservation`,
+    `https://presentation-day-1-rest-rip.vercel.app/workingSpaces/${reservationItem.workSpaceId}/reservation`,
     {
       method: "POST",
       headers: {
