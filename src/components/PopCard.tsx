@@ -42,7 +42,7 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
     if (!session?.user.token || !date) return;
 
     const reservationItem: ReservationItem = {
-      id: user.data.id,
+      userId: user.data._id,
       name: user.data.name,
       email: user.data.email,
       workSpace: workingSpace.name,

@@ -54,7 +54,7 @@ const page = () => {
     }
 
     const reservationItem: ReservationItem = {
-      id: user.data.id,
+      userId: user.data.id,
       name: user.data.name,
       email: user.data.email,
       workSpace: selectedWorkingSpace,

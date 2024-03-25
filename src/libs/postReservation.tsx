@@ -2,27 +2,31 @@ async function postReservation(
   reservationItem: ReservationItem,
   token: string
 ) {
-  const respose = await fetch(
-    `http://localhost:5000/workingSpaces/${reservationItem.workSpaceId}/reservation`,
+  const response = await fetch(
+    // `http://localhost:5000/workingSpaces/${reservationItem.workSpaceId}/reservation`,
+    `https://coworkingspaceapi.onrender.com/workingSpaces/${reservationItem.workSpaceId}/reservation`,
     {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        user: reservationItem.id,
+        user: reservationItem.userId,
         apptDate: reservationItem.bookDate,
       }),
     }
   );
 
-  if (!respose.ok) {
-    const data = await respose.json();
+  console.log(reservationItem.userId);
+
+  if (!response.ok) {
+    const data = await response.json();
     console.log(data);
     throw new Error("Failed to post reservation");
   }
   console.log("post success");
-  return await respose.json();
+  return await response.json();
 }
 
 export default postReservation;

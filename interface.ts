@@ -19,7 +19,7 @@ interface WorkingSpaceJson {
 }
 
 interface ReservationItem {
-  id: string; // User ID
+  userId: string; // User ID
   name: string;
   email: string;
   workSpace: string;

@@ -1,5 +1,5 @@
 async function getWorkingSpaces() {
-  const response = await fetch("http://localhost:5000/workingSpaces");
+  const response = await fetch("https://coworkingspaceapi.onrender.com/workingSpaces");
 
   if (!response.ok) {
     throw new Error("Failed to fetch working spaces");

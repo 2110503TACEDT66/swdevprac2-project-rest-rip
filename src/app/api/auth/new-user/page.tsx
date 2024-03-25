@@ -19,13 +19,16 @@ const page = () => {
     console.log("handle here");
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, tel, citizenID, password }),
-      });
+      const response = await fetch(
+        "https://coworkingspaceapi.onrender.com/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, tel, citizenID, password }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to register new user");
