@@ -84,22 +84,26 @@ function page({ params }: { params: { wid: string } }) {
           </div>
         </div>
 
-        {showPopCard && (
+        {showPopCard ? (
           <PopCard
             workingSpace={workingSpaceData}
             showPopCard={(value: boolean) => {
               setShowPopCard(value);
             }}
           />
+        ) : (
+          <>{/* {alert("Please Login to make reservation")} */}</>
         )}
 
-        {showRatingModal && (
+        {showRatingModal ? (
           <RatingModal
             workingSpace={workingSpaceData}
             showModal={(value: boolean) => {
               setShowRatingModal(value);
             }}
           />
+        ) : (
+          <>{/* {alert("Please Login to rate this Working Space")} */}</>
         )}
       </div>
     </Suspense>
