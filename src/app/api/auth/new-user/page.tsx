@@ -40,7 +40,7 @@ const page = () => {
 
   return (
     <div className="m-6 bg-slate-700 rounded-2xl flex flex-col justify-center p-4 items-center">
-      <div className="p-4  flex justify-center w-1/3 flex-col items-center bg-white rounded-lg">
+      <div className="p-4  flex justify-center w-1/4 flex-col items-center bg-white rounded-lg">
         <h1 className="font-semibold text-black">Registeration</h1>
         <div className="w-full justify-center">
           <div className="my-4">
