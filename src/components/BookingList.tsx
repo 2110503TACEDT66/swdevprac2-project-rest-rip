@@ -5,6 +5,8 @@ import { getServerSession } from 'next-auth';
 
 import React, { useState } from 'react'
 import ButtonComponent from './ButtonComponent';
+import getUserProfile from '@/libs/getUserProfile';
+import EditButton from './EditButton';
 
 const BookingList = async () => {
   const session = await getServerSession(authOptions) ;
@@ -18,13 +20,16 @@ const BookingList = async () => {
     )
   }
 
-    
+
+  const user = await getUserProfile(session.user.token);
+
+
 
 
   const reservations:ReservationJson = await getReservation(session.user.token);
   // console.log(reservations);
-
-
+  // console.log(user);
+  
 
   return (
 
@@ -34,27 +39,27 @@ const BookingList = async () => {
         reservations.data.map((reservation:ReservationItem)=>(
 
 
-          <div key={reservation._id} className='my-5 bg-slate-500 rounded-xl p-6 flex flex-col justify-center items-center w-2/5 drop-shadow-2xl'>
+          <div key={reservation._id} className='my-4 bg-slate-500 rounded-xl px-4 py-2 flex flex-col justify-center items-center h-[40vh] w-2/5 drop-shadow-2xl'>
             {/* <h1>{reservation.workSpace.constructor.name}</h1> */}
-            {session.user.role === 'admin' ?
-              <h1>{reservation.user}</h1> :
+            {user.data.role === 'admin' ?
+              <h1>User ID : {reservation.user}</h1>
+              :
               ""
             } 
-
+            <h1 className='mb-4'>Reservation ID : {reservation._id}</h1>
             <h1 className='text-xl font-semibold'>{reservation.workingSpace?.name}</h1> 
             <h1 className='text-sm text-slate-200'>{reservation.workingSpace?.province}</h1> 
             <h1 className='text-sm text-slate-200'>{reservation.workingSpace?.tel}</h1> 
             <h1>Date : {new Date(reservation.apptDate).toLocaleDateString('en-US')}</h1>
 
 
-            <div className='flex'>
+            <div className='flex mt-4'>
+              <EditButton key={reservation._id} id={reservation._id||""}  workingSpaceID={reservation.workingSpace?._id||""} >
+                EDIT
+              </EditButton>
               <ButtonComponent key={reservation._id} id={reservation._id||""} token={session.user.token}>
                 DELETE
               </ButtonComponent>
-              {/* <button className='bg-red-600  px-4 py-1 m-2 rounded-full'
-              onClick={() => handleDelete(reservation._id,session.user.token)}
-              
-              >Remove</button> */}
             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
             
             

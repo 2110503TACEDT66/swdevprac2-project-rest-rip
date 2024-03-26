@@ -55,6 +55,22 @@ const page = () => {
               ></TextField>
               <TextField
                 variant="standard"
+                name="citizen ID"
+                label="citizenID "
+                onChange={(e) => {
+                  setCitizenID(e.target.value);
+                }}
+              ></TextField>
+              <TextField
+                variant="standard"
+                name="Telephone Number"
+                label="Tel"
+                onChange={(e) => {
+                  setTel(e.target.value);
+                }}
+              ></TextField>
+              <TextField
+                variant="standard"
                 name="Email"
                 label="Email"
                 onChange={(e) => {

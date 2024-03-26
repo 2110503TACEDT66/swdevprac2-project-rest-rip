@@ -33,6 +33,7 @@ async function postReservation(
   }else{
     alert("Add a Reservation success");
     console.log("post success");
+    window.location.reload();
     return await response.json();
   }
 
