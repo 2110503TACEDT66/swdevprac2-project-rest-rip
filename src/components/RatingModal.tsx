@@ -6,6 +6,7 @@ import updateRatinng from "@/libs/updateRatinng";
 import { Button, Rating, TextField } from "@mui/material";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import ErrorModal from "./ErrorModal";
 
 type RatingModalProps = {
   workingSpace: WorkingSpaceItem;
@@ -19,7 +20,12 @@ function RatingModal({ workingSpace, showModal }: RatingModalProps) {
   const { data: session, status } = useSession();
   const [user, setUser] = useState<any>(null);
   if (!session || !session.user.token) {
-    return null;
+    return (
+      <ErrorModal
+        message="Please login to rate this workspace"
+        setModal={showModal}
+      />
+    );
   }
 
   useEffect(() => {

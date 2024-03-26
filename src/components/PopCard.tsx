@@ -10,6 +10,7 @@ import getUserProfile from "@/libs/getUserProfile";
 import { useDispatch } from "react-redux";
 // import { AppDispatch } from "@/redux/store";
 import postReservation from "@/libs/postReservation";
+import ErrorModal from "./ErrorModal";
 
 type PopCardProps = {
   workingSpace: WorkingSpaceItem;
@@ -24,7 +25,12 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
 
   const [user, setUser] = useState<any>(null);
   if (!session || !session.user.token) {
-    return null;
+    return (
+      <ErrorModal
+        message="Please login to make reservation"
+        setModal={showPopCard}
+      />
+    );
   }
 
   useEffect(() => {
@@ -53,8 +59,6 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
     // dispatch(addReservation(reservationItem));
     const response = postReservation(reservationItem, session.user.token);
     showPopCard(false);
-
-
   }
 
   function handleCancel() {
@@ -64,7 +68,9 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm backdrop-brightness-75">
       <div className="bg-white p-10 rounded-lg flex flex-col items-center align-center ">
-        <h1 className="text-2xl font-semibold text-slate-800">Reserve a {workingSpace.name}</h1>
+        <h1 className="text-2xl font-semibold text-slate-800">
+          Reserve a {workingSpace.name}
+        </h1>
         <h2>Choose Date</h2>
         <DateReserve
           onDateChange={(value: Dayjs) => {
