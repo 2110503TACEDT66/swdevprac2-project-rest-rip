@@ -6,25 +6,26 @@ import getRating from "@/libs/getRating";
 import { Rating } from "@mui/material";
 
 type CardProps = {
-  id:string
+  id: string;
   hospitalName: string;
   imgSrc: string;
-  address : string;
+  address: string;
   onRating?: Function;
 };
 
-function Card({id, hospitalName, imgSrc,address }: CardProps) {
+function Card({ id, hospitalName, imgSrc, address }: CardProps) {
   const [rating, setRating] = useState(0);
 
-  getRating(id).then(async (data) => {
-    if(data.data[0]?.averageRating){
-      await setRating(data.data[0].averageRating)
-    }
-    
-  }).catch(err=>{
-    console.error("no rating", err);
-  });
-  
+  getRating(id)
+    .then(async (data) => {
+      if (data.data[0]?.averageRating) {
+        await setRating(data.data[0].averageRating);
+      }
+    })
+    .catch((err) => {
+      console.error("no rating", err);
+    });
+
   return (
     <div>
       <InteractiveCard>
@@ -36,19 +37,25 @@ function Card({id, hospitalName, imgSrc,address }: CardProps) {
             height={350}
             className="rounded-lg h-full w-auto shadow-lg"
           />
-    
+
           <div className="flex items-center align-center  mx-5 px-3">
-            <div className="text-left m-2 text-slate-50"> 
+            <div className="text-left m-2 text-slate-50">
               <h1 className="text-3xl font-semibold mb-2">{hospitalName}</h1>
-              <p className="text-xl font-medium text-slate-200 italic">{address}</p>
-              <Rating name="read-only" defaultValue={0} value={rating}  precision={0.5} readOnly />
-            </div>  
-            
+              <p className="text-xl font-medium text-slate-200 italic">
+                {address}
+              </p>
+              <Rating
+                name="read-only"
+                defaultValue={0}
+                value={rating}
+                precision={0.5}
+                readOnly
+              />
+            </div>
           </div>
         </div>
-
       </InteractiveCard>
-      </div>
+    </div>
   );
 }
 

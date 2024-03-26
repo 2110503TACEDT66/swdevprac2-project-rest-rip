@@ -7,7 +7,10 @@ type TopMenuItemProps = {
 
 function TopMenuItem({ title, href }: TopMenuItemProps) {
   return (
-    <Link href={href} className="text-md  hover:bg-neutral-400 hover:rounded-full hover:px-4">
+    <Link
+      href={href}
+      className="text-md  hover:bg-neutral-400 hover:rounded-full px-4"
+    >
       {title}
     </Link>
   );

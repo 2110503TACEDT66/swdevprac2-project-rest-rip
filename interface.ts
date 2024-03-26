@@ -19,11 +19,11 @@ interface WorkingSpaceJson {
 }
 
 interface workingReserv {
-  _id : string;
-  name : string ;
-  province : string ;
-  tel : string;
-  id : string;
+  _id: string;
+  name: string;
+  province: string;
+  tel: string;
+  id: string;
 }
 
 interface ReservationJson {
@@ -39,8 +39,15 @@ interface ReservationItem {
   userId: string; // User ID
   name: string;
   email: string;
-  workingSpace? : workingReserv;
+  workingSpace?: workingReserv;
   workSpace: Object;
   workSpaceId: string;
   apptDate: string;
+}
+
+interface RatingItem {
+  userId: string;
+  workSpaceId: string;
+  rating: number;
+  comment: string;
 }
