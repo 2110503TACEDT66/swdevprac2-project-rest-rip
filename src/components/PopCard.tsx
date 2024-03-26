@@ -75,7 +75,7 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
         <div className="flex justify-end mt-4 bottom-0">
           <Button
             variant="contained"
-            className="mr-2"
+            className="mr-2 bg-slate-700"
             onClick={() => {
               handleCancel();
             }}
@@ -84,6 +84,7 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
           </Button>
           <Button
             variant="contained"
+            className="bg-slate-700"
             onClick={() => {
               handleSubmit();
             }}

@@ -20,13 +20,15 @@ const page = () => {
     if(!name || !citizenID || !email || !password || !tel){
       alert("Please fill the data");
     }else{  
-      userRegister(name,citizenID,tel,email,password)
+      const response = userRegister(name,citizenID,tel,email,password);
+      alert("Registered Successfully");
+      window.location.reload();
     }
 
   };
 
   return (
-    <div className="m-6 bg-slate-700 rounded-2xl flex flex-col justify-center p-4 items-center">
+    <div className="m-6 bg-slate-700 rounded-2xl flex flex-col justify-center p-4 items-center h-[80vh]">
       <div className="p-4  flex justify-center w-1/4 flex-col items-center bg-white rounded-lg">
         <h1 className="font-semibold text-black">Registeration</h1>
         <div className="w-full justify-center">
