@@ -1,8 +1,10 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import deleteReservation from '@/libs/deleteReservation';
 import getReservation from '@/libs/getReservation'
 import { getServerSession } from 'next-auth';
 
-import React from 'react'
+import React, { useState } from 'react'
+import ButtonComponent from './ButtonComponent';
 
 const BookingList = async () => {
   const session = await getServerSession(authOptions) ;
@@ -16,9 +18,13 @@ const BookingList = async () => {
     )
   }
 
+    
+
 
   const reservations:ReservationJson = await getReservation(session.user.token);
   // console.log(reservations);
+
+
 
   return (
 
@@ -41,9 +47,14 @@ const BookingList = async () => {
 
 
             <div className='flex'>
-              <button className='bg-yellow-600 px-4 py-1 m-2 rounded-full'>Edit</button>
-              <button className='bg-red-600  px-4 py-1 m-2 rounded-full'>Remove</button>
-            </div>
+              <ButtonComponent key={reservation._id} id={reservation._id||""} token={session.user.token}>
+                DELETE
+              </ButtonComponent>
+              {/* <button className='bg-red-600  px-4 py-1 m-2 rounded-full'
+              onClick={() => handleDelete(reservation._id,session.user.token)}
+              
+              >Remove</button> */}
+            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
             
             
           </div>

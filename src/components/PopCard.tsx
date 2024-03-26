@@ -6,9 +6,9 @@ import { Dayjs } from "dayjs";
 import { Button } from "@mui/material";
 import { useSession } from "next-auth/react";
 import getUserProfile from "@/libs/getUserProfile";
-import { addReservation } from "@/redux/features/reservationSlice";
+// import { addReservation } from "@/redux/features/reservationSlice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+// import { AppDispatch } from "@/redux/store";
 import postReservation from "@/libs/postReservation";
 
 type PopCardProps = {
@@ -20,7 +20,7 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
   const [date, setDate] = useState<Dayjs | null>(null);
   const { data: session, status } = useSession();
 
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
 
   const [user, setUser] = useState<any>(null);
   if (!session || !session.user.token) {
@@ -50,7 +50,7 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
       apptDate: date.format("YYYY-MM-DD"),
     };
 
-    dispatch(addReservation(reservationItem));
+    // dispatch(addReservation(reservationItem));
     const response = postReservation(reservationItem, session.user.token);
     showPopCard(false);
 
