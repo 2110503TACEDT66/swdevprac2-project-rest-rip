@@ -4,8 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import getRating from "@/libs/getRating";
 import { Rating } from "@mui/material";
-import { error } from "console";
-
 
 type CardProps = {
   id:string
@@ -20,7 +18,6 @@ function Card({id, hospitalName, imgSrc,address }: CardProps) {
 
   getRating(id).then(async (data) => {
     if(data.data[0]?.averageRating){
-      console.log(data.data[0].averageRating);
       await setRating(data.data[0].averageRating)
     }
     
@@ -28,8 +25,6 @@ function Card({id, hospitalName, imgSrc,address }: CardProps) {
     console.error("no rating", err);
   });
   
-
-
   return (
     <div>
       <InteractiveCard>

@@ -20,20 +20,13 @@ const BookingList = async () => {
     )
   }
 
-
   const user = await getUserProfile(session.user.token);
 
-
-
-
   const reservations:ReservationJson = await getReservation(session.user.token);
-  // console.log(reservations);
-  // console.log(user);
-  
 
   return (
 
-    <div className='flex flex-col items-center align-center'>
+    <div className='flex flex-col justify-center items-center align-center w-full h-full'>
       {reservations.count > 0?  
 
         reservations.data.map((reservation:ReservationItem)=>(
@@ -67,7 +60,11 @@ const BookingList = async () => {
 
         ))
 
-      : "No Reservations"
+      :
+      <div className='flex flex-col justify-center items-center h-full w-full'>
+        No Reservations ...
+      </div>
+
 
       }  
     </div>
