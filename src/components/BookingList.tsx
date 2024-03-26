@@ -28,21 +28,22 @@ const BookingList = async () => {
 
   return (
 
-    <div>
+    <div className='flex flex-col items-center align-center'>
       {reservations.count > 0?  
 
         reservations.data.map((reservation:ReservationItem)=>(
 
-          <div key={reservation._id} className='my-4 bg-slate-500 rounded-xl p-6 flex flex-col justify-center items-center'>
+
+          <div key={reservation._id} className='my-5 bg-slate-500 rounded-xl p-6 flex flex-col justify-center items-center w-2/5 drop-shadow-2xl'>
             {/* <h1>{reservation.workSpace.constructor.name}</h1> */}
             {session.user.role === 'admin' ?
               <h1>{reservation.user}</h1> :
               ""
             } 
 
-            <h1>{reservation.workingSpace?.name}</h1> 
-            <h1>{reservation.workingSpace?.province}</h1> 
-            <h1>{reservation.workingSpace?.tel}</h1> 
+            <h1 className='text-xl font-semibold'>{reservation.workingSpace?.name}</h1> 
+            <h1 className='text-sm text-slate-200'>{reservation.workingSpace?.province}</h1> 
+            <h1 className='text-sm text-slate-200'>{reservation.workingSpace?.tel}</h1> 
             <h1>Date : {new Date(reservation.apptDate).toLocaleDateString('en-US')}</h1>
 
 

@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation'
 const Banner = () => {
   const router = useRouter();
   return (
-    <div className='bg-slate-700 my-4 mx-6 rounded-xl p-6 flex justify-between' style={{minHeight: "88vh"}}>
-      <div className='flex flex-col justify-start'>
+    <div className='bg-slate-700 my-4 mx-6 rounded-xl p-6 flex min-h-[89vh]'>
+      <div className='flex flex-col p-5'>
         <h1 className='font-semibold text-4xl mb-10'>CO-Working Spaces for you</h1>
         <p className='my-6 pr-6'>Step into productivity with our private office space in Thailand. Our fully equipped offices offer the perfect blend of comfort and functionality, allowing you to work efficiently and effectively. Rent space on your terms and concentrate on achieving your business objectives with us by your side.</p>
         <h1 className='font-semibold my-6 text-xl'>What do we provide for you:</h1>
@@ -26,8 +26,10 @@ const Banner = () => {
 
         <h1 className='ml-2 mt-6 text-md'>Call us at +66 1 212 3121</h1>
       </div>
-
-      <img className='w-1/2 h-auto rounded-xl' src='images/cover.jpg'/>
+      <div className='w-[120%] h-auto relative rounded-xl overflow-hidden '>
+        <img className='w-[120%] h-full absolute ' src='images/cover.jpg' alt='Cover Image'/>
+      </div>
+      
     </div>
   )
 }

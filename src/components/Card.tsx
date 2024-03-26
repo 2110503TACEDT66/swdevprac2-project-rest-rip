@@ -1,10 +1,8 @@
 "use client";
-import { Rating } from "@mui/material";
 import InteractiveCard from "./InteractiveCard";
 import { useState } from "react";
 import Image from "next/image";
 
-import { useRouter } from "next/router";
 
 type CardProps = {
   hospitalName: string;
@@ -19,38 +17,22 @@ function Card({ hospitalName, imgSrc,address, onRating }: CardProps) {
 
   return (
     <div>
-
-
       <InteractiveCard>
-        <div className="flex w-full bg-slate-500 rounded-lg">
- 
+        <div className="flex flex-row p-2 w-full medium bg-slate-500 rounded-2xl">
           <Image
             src={imgSrc}
             alt="workingSpaceImg"
             width={350}
             height={350}
-            className="rounded-lg h-full w-auto"
+            className="rounded-lg h-full w-auto shadow-lg"
           />
-          {/* <img src={imgSrc} alt="hospital image" className="rounded-t-xl" /> */}
-
-          <div className="m-2 text-white">
-            <h1 className="text-xl font-semibold mb-2">{hospitalName}</h1>
-            <p className="font-thin">{address}</p>
-            {/* {onRating && (
-              <Rating
-                id={hospitalName + " Rating"}
-                name={hospitalName + " Rating"}
-                data-testid={hospitalName + " Rating"}
-                value={rating}
-                onChange={(event, newValue) => {
-                  if (newValue !== null) {
-                    setRating(newValue);
-                    onRating(hospitalName, newValue);
-                  }
-                }}
-              />
-            )} */}
-
+    
+          <div className="flex items-center align-center  mx-5 px-3">
+            <div className="text-left m-2 text-slate-50"> 
+              <h1 className="text-3xl font-semibold mb-2">{hospitalName}</h1>
+              <p className="text-xl font-medium text-slate-200 italic">{address}</p>
+            </div>
+            
           </div>
         </div>
 
