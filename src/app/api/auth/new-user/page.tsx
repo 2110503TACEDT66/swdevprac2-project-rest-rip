@@ -7,35 +7,22 @@ import userLogIn from "@/libs/userLogIn";
 import { useRouter } from "next/navigation";
 
 const page = () => {
-  const [name, setName] = useState<string | null>("");
-  const [email, setEmail] = useState<string | null>("");
-  const [tel, setTel] = useState<string | null>("");
-  const [citizenID, setCitizenID] = useState<string | null>("");
-  const [password, setPassword] = useState<string | null>("");
+  const [name, setName] = useState<string | null>();
+  const [email, setEmail] = useState<string | null>();
+  const [tel, setTel] = useState<string | null>();
+  const [citizenID, setCitizenID] = useState<string | null>();
+  const [password, setPassword] = useState<string | null>();
 
   const handleRegister = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     console.log("handle here");
-    e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://coworkingspaceapi.onrender.com/auth/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email, tel, citizenID, password }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to register new user");
-      }
-    } catch (e) {
-      console.log(e);
+    if(!name || !citizenID || !email || !password || !tel){
+      alert("Please fill the data");
+    }else{  
+      userRegister(name,citizenID,tel,email,password)
     }
+
   };
 
   return (
