@@ -21,6 +21,7 @@ async function WorkingSpaceCatalog({
               key={workingSpaceItem._id}
             >
               <Card
+               id = {workingSpaceItem._id}
                 hospitalName={workingSpaceItem.name}
                 address={
                   workingSpaceItem.address +

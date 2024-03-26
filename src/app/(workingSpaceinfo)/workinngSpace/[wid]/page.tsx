@@ -49,7 +49,7 @@ function page({ params }: { params: { wid: string } }) {
         <h1 className="mx-5 my-2 text-xl w-auto text-slate-200">
           {workingSpaceData.tel}
         </h1>
-
+      
         <div className="flex flex-row justify-center gap-5 px-5 py-2.5 me-2 mb-0 mt-5">
           <Button variant="contained" onClick={handleButtonClick}>
             Make Reservation
