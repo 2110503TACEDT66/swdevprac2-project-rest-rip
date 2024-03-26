@@ -20,7 +20,8 @@ const page = () => {
     if(!name || !citizenID || !email || !password || !tel){
       alert("Please fill the data");
     }else{  
-      userRegister(name,citizenID,tel,email,password)
+      const response = userRegister(name,citizenID,tel,email,password);
+      alert("Registered Successfully");
     }
 
   };
