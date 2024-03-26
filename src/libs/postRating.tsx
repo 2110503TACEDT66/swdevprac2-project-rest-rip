@@ -17,8 +17,13 @@ async function postRating(ratingItem: RatingItem, token: string) {
 
   if (!response.ok) {
     const data = await response.json();
-    console.log(data);
-    throw new Error("Failed to post rating");
+    // console.log(data);
+    const status = await response.status;
+    if (status === 400) {
+      throw new Error("This User already rated this working space");
+    } else {
+      throw new Error("Failed to post rating");
+    }
   }
 
   return await response.json();

@@ -2,6 +2,7 @@
 
 import getUserProfile from "@/libs/getUserProfile";
 import postRating from "@/libs/postRating";
+import updateRatinng from "@/libs/updateRatinng";
 import { Button, Rating, TextField } from "@mui/material";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -32,7 +33,7 @@ function RatingModal({ workingSpace, showModal }: RatingModalProps) {
     fetchData();
   }, []);
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (!session?.user.token) return;
 
     const ratingItem: RatingItem = {
@@ -43,11 +44,17 @@ function RatingModal({ workingSpace, showModal }: RatingModalProps) {
     };
 
     try {
-      const response = postRating(ratingItem, session.user.token);
+      const response = await postRating(ratingItem, session.user.token);
+
       alert("Rating successfully");
-    } catch (err) {
-      alert("Something went wrong");
-      console.log(err);
+    } catch (err: any) {
+      if (err.message === "This User already rated this working space") {
+        await updateRatinng(ratingItem, session.user.token);
+        alert("Rating updated successfully");
+      } else {
+        alert("Something went wrong");
+        console.log(err);
+      }
     }
     showModal(false);
   }
