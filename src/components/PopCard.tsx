@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import DateReserve from "./DateReserve";
-import { Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { Button } from "@mui/material";
 import { useSession } from "next-auth/react";
 import getUserProfile from "@/libs/getUserProfile";
@@ -40,6 +40,12 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
 
   function handleSubmit() {
     if (!session?.user.token || !date) return;
+    if(date.isBefore(dayjs(),'day') ) {
+      alert("Please don't select the day before today");
+    
+      return;
+    }
+
 
     const reservationItem: ReservationItem = {
       userId: user.data._id,
