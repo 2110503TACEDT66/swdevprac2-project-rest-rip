@@ -22,6 +22,7 @@ const page = () => {
     }else{  
       const response = userRegister(name,citizenID,tel,email,password);
       alert("Registered Successfully");
+      window.location.reload();
     }
 
   };
