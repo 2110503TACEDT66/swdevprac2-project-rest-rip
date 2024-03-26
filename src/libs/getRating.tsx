@@ -9,7 +9,7 @@ async function getRating(id:string) {
         throw new Error("Failed to fetch ratings");
     }
     const data = response.json();
-    console.log(data);
+    // console.log(data);
     return await data;
 }
 
