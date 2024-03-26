@@ -59,19 +59,19 @@ function page({ params }: { params: { wid: string } }) {
             {workingSpaceData.tel}
           </h1>
 
-          <div className="flex flex-row items-center w-full justify-center gap-4 my-4 center">
+          <div className="flex flex-col items-center w-full justify-center gap-4 my-2 center">
             <Rating
               size="large"
               value={avgRating}
               readOnly={true}
-              precision={0.5}
+              precision={0.25}
             />
             <Button
               variant="contained"
               onClick={() => {
                 setShowRatingModal(true);
               }}
-              className="bg-slate-800"
+              className="bg-slate-600 rounded-full"
             >
               Rate this Workspace
             </Button>
