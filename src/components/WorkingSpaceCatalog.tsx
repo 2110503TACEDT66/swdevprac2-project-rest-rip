@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Card from "./Card";
+import { Suspense } from "react";
 
 type WorkingSpaceCatalogProps = {
   workingSpacesJson: Promise<WorkingSpaceJson>;
@@ -12,6 +13,7 @@ async function WorkingSpaceCatalog({
   // const imgList = ['/images/workingPic1.jpg','/images/workingPic2.jpg']
   let i = 1;
   return (
+    <Suspense fallback ={<h1>Loading...</h1>}>
     <div className="relative flex flex-col my-4 justify-around bg-slate-700 rounded-xl m-6 p-4">
       {workingSpaceItems.data.map((workingSpaceItem) => (
         <div className="my-5 mx-5 flex flex-col items-center align-center" key={workingSpaceItem._id}>
@@ -39,7 +41,9 @@ async function WorkingSpaceCatalog({
         </div>
       ))}
     </div>
+    </Suspense>
   );
+
 }
 
 export default WorkingSpaceCatalog;

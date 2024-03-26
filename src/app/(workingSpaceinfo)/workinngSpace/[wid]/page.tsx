@@ -4,7 +4,7 @@ import PopCard from "@/components/PopCard";
 import getWorkingSpace from "@/libs/getWorkingSpace";
 import { Button } from "@mui/material";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 
 function page({ params }: { params: { wid: string } }) {
   const [workingSpaceData, setWorkingSpaceData] = useState<WorkingSpaceItem>(
@@ -27,7 +27,11 @@ function page({ params }: { params: { wid: string } }) {
   };
 
   return (
-    <div className="bg-slate-700 flex flex-col align-center m-6 items-center px-6 py-[24px] rounded-xl shadow-xl gap-5">
+    <div>
+
+
+    <Suspense fallback ={<h1>Loading...</h1>}>
+      <div className="bg-slate-700 flex flex-col align-center m-6 items-center px-6 py-[24px] rounded-xl shadow-xl gap-5">
       <img
         src={workingSpaceData.picture}
         className="h-auto w-3/5 rounded-lg border-4 border-slate-600 drop-shadow-2xl"
@@ -65,6 +69,9 @@ function page({ params }: { params: { wid: string } }) {
           }}
         />
       )}
+    </div>
+
+    </Suspense>
     </div>
   );
 }
