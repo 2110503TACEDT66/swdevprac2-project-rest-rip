@@ -16,20 +16,20 @@ const Banner = () => {
           <li>- Friendly UX/UI for users</li>
           <li>- 24/7 help services</li>
         </ul>
-   
-          <button className='bg-red-700  px-4 py-2 rounded-lg w-1/3 mt-24 mb-6'
+
+        <button className='bg-red-700  px-4 py-2 rounded-lg w-1/3 mt-24 mb-6'
           onClick={(e) => {
             e.stopPropagation();
             router.push('/workinngSpace')
           }}>Reserve Now</button>
-    
+
 
         <h1 className='ml-2 mt-6 text-md'>Call us at +66 1 212 3121</h1>
       </div>
       <div className='w-[120%] h-auto relative rounded-xl overflow-hidden '>
-        <img className='w-[120%] h-full absolute ' src='images/cover.jpg' alt='Cover Image'/>
+        <img className='w-[120%] h-full absolute ' src='images/cover.jpg' alt='Cover Image' />
       </div>
-      
+
     </div>
   )
 }
