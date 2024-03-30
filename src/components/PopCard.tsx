@@ -72,7 +72,7 @@ function PopCard({ workingSpace, showPopCard }: PopCardProps) {
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm backdrop-brightness-75">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm backdrop-brightness-75" data-testid="pop-card">
       <div className="bg-white p-10 rounded-lg flex flex-col items-center align-center ">
         <h1 className="text-2xl font-semibold text-slate-800">
           Reserve a {workingSpace.name}

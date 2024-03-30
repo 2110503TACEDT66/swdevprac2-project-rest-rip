@@ -43,7 +43,7 @@ function page({ params }: { params: { wid: string } }) {
           // alt="Working Space Image"
         />
         <div className=" flex flex-col text-center bg-slate-600 rounded-lg p-5">
-          <h1 className="mx-auto my-2 text-2xl w-full font-semibold">
+          <h1 className="mx-auto my-2 text-2xl w-full font-semibold" data-testid="w-name">
             {workingSpaceData.name}
           </h1>
           <h1 className="mx-5 my-2 text-xl w-auto  text-slate-200">

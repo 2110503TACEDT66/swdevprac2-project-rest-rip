@@ -7,7 +7,7 @@ type ErrorModalProps = {
 
 function ErrorModal({ message, setModal }: ErrorModalProps) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm backdrop-brightness-75">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm backdrop-brightness-75" data-testid="err-modal">
       <div className="bg-white p-10 rounded-lg flex flex-col items-center align-center ">
         <h2 className="text-center text-3xl text-black mb-6">{message}</h2>
         <Button
