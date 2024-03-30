@@ -21,7 +21,7 @@ const BookingList = async () => {
   }
 
   const user = await getUserProfile(session.user.token);
-
+  //
   const reservations:ReservationJson = await getReservation(session.user.token);
 
   return (
