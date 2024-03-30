@@ -32,8 +32,8 @@ describe("/workingSpace/wid page", () => {
   var logInPromise: Promise<Object>;
   var logInJsonResult: any;
   var token: string;
-  var profilePromise:Promise<Object>;
-  var profileJsonResult:Object;
+  var profilePromise: Promise<Object>;
+  var profileJsonResult: Object;
 
   beforeAll(async () => {
     const email = "test@test.com";
@@ -66,19 +66,19 @@ describe("/workingSpace/wid page", () => {
     jest.mock("../src/components/ErrorModal.tsx");
     jest.mock("next-auth/react", () => ({
       useSession() {
-        return { data: null, user: {name: "Tester"}};
+        return { data: null, user: { name: "Tester" } };
       }
     }))
 
     let session: Session = {
       user: {
-        _id:"66006f71677d5978cea73782",
+        _id: "66006f71677d5978cea73782",
         name: "Test",
         email: "",
         role: "",
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDA2ZjcxNjc3ZDU5NzhjZWE3Mzc4MiIsImlhdCI6MTcxMTczOTQxNCwiZXhwIjoxNzE0MzMxNDE0fQ.0e0lfhLylRgnIB0sM4ohQPcp7EwZLmzAvYZyUbGiKDk",
       },
-      
+
       expires: "2028-12-31"
     }
 
@@ -92,7 +92,7 @@ describe("/workingSpace/wid page", () => {
 
     const btn = await screen.findByText("Make Reservation")
     userEvent.click(btn);
-    await waitFor(async() => {
+    await waitFor(async () => {
       const popCard = await screen.findByTestId("pop-card");
       expect(popCard).toBeInTheDocument()
     })
@@ -103,7 +103,7 @@ describe("/workingSpace/wid page", () => {
     jest.mock("../src/components/ErrorModal.tsx");
     jest.mock("next-auth/react", () => ({
       useSession() {
-        return { data: null, user: {name: "Tester"}};
+        return { data: null, user: { name: "Tester" } };
       }
     }))
 
@@ -117,8 +117,8 @@ describe("/workingSpace/wid page", () => {
 
     const btn = await screen.findByText("Make Reservation")
     userEvent.click(btn);
-    await waitFor(async() => {
-      const errModal =  await screen.findByTestId("err-modal");
+    await waitFor(async () => {
+      const errModal = await screen.findByTestId("err-modal");
       expect(errModal).toBeInTheDocument();
     })
   });
